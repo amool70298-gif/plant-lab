@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مختبر افتراضي: ما الذي تحتاج إليه أوراق النباتات؟</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#eaf3f8;--card:#fff;--ink:#17323f;--mute:#557383;--sky:#2b7ba5;--green:#7fae2f;--sun:#f2c12e;--line:#c9dce7;--ok:#1f7a4a;--okbg:#dff3e6;--bad:#b3261e;--badbg:#fbe3e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1f28;--card:#172b36;--ink:#e6f1f6;--mute:#93b0bf;--line:#2c4655;--sky:#5db4e0;--ok:#6fd39b;--okbg:#17392a;--bad:#f28b82;--badbg:#3f1f1d}}
+:root[data-theme="dark"]{--bg:#0f1f28;--card:#172b36;--ink:#e6f1f6;--mute:#93b0bf;--line:#2c4655;--sky:#5db4e0;--ok:#6fd39b;--okbg:#17392a;--bad:#f28b82;--badbg:#3f1f1d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Tajawal',Tahoma,'Segoe UI',sans-serif;line-height:1.75;font-size:16px}
+main{max-width:720px;margin:0 auto;padding:14px}
+header{background:var(--sky);color:#fff;border-radius:14px 14px 14px 0;padding:14px 16px;border-inline-start:8px solid var(--sun)}
+header small{opacity:.9}header h1{margin:2px 0 0;font-size:20px;font-weight:800}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:14px;padding:14px}
+h2{margin:0 0 6px;font-size:17px;font-weight:800;display:flex;gap:8px;align-items:center}
+h2 b{background:var(--sky);color:#fff;border-radius:50%;width:26px;height:26px;display:inline-grid;place-items:center;font-size:14px;flex:none}
+p{margin:4px 0}
+.tray{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:4px 10px;font:inherit;cursor:pointer;display:flex;gap:6px;align-items:center;min-height:44px}
+.chip[aria-pressed=true]{border-color:var(--sky);background:var(--sky);color:#fff}
+.chip.ok{border-color:var(--ok);background:var(--okbg);color:var(--ink)}
+.chip.bad{border-color:var(--bad);background:var(--badbg);color:var(--ink)}
+.tag{font-size:13px;color:var(--mute);margin-top:6px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+svg{width:100%;height:auto;display:block;border-radius:10px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+button.b{border:0;background:var(--green);color:#0d2200;font:inherit;font-weight:700;border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.b.g{background:var(--line);color:var(--ink)}
+button:disabled,input:disabled{opacity:.5;cursor:not-allowed}
+input[type=range]{flex:1;min-width:140px;accent-color:var(--sky);height:32px}
+.note{background:var(--bg);border-inline-start:5px solid var(--green);border-radius:8px;padding:8px 10px;margin-top:8px}
+.ans{color:var(--ok);font-weight:700}
+.q{margin-top:8px}.q b{color:var(--sky)}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:15px}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:right;vertical-align:top}
+th{background:var(--bg)}
+details{border:1px solid var(--line);border-radius:10px;margin-top:8px;padding:6px 10px}
+summary{cursor:pointer;font-weight:700;min-height:32px}
+</style>
+</head>
+<body>
+<main>
+<header><small>أستكشف · نشاط استقصائي</small><h1>ما الذي تحتاج إليه أوراق النباتات لكي تعيش؟</h1></header>
+
+<section>
+<h2><b>١</b>أجهّز التجربة</h2>
+<p>أضع نبتتين في مكان مشمس، ثم أغطّي أوراق إحداهما بورق الألومنيوم، وأحافظ على رطوبة التربة في الأصيصين. نفّذ الخطوات الثلاث:</p>
+<div class="tray">
+<button class="chip" id="sSun" aria-pressed="false">☀️ أضع النبتتين في مكان مشمس</button>
+<button class="chip" id="sCov" aria-pressed="false">أغطّي أوراق النبتة (ب) بالألومنيوم</button>
+<button class="chip" id="sWat" aria-pressed="false">💧 أحافظ على رطوبة التربة</button>
+</div>
+<div id="sv1"></div>
+<div id="setmsg" class="tag" aria-live="polite"></div>
+</section>
+
+<section>
+<h2><b>٢</b>أتوقّع</h2>
+<p>ماذا يحدث لكل من النبتتين بعد أسبوع؟</p>
+<div class="q"><b>النبتة (أ) المكشوفة:</b><div class="tray" id="pA"></div></div>
+<div class="q"><b>النبتة (ب) المغطاة:</b><div class="tray" id="pB"></div></div>
+</section>
+
+<section>
+<h2><b>٣</b>أسجّل البيانات</h2>
+<p>حرّك الزمن لتلاحظ النبتتين خلال أسبوع، وتُسجَّل ملاحظاتك في الجدول.</p>
+<div id="sv3"></div>
+<div class="row"><input type="range" id="d1" min="0" max="7" step="1" value="0" aria-label="اليوم" disabled><span id="d1l" class="tag">اليوم ٠</span></div>
+<div id="lock" class="tag"></div>
+<table><thead><tr><th>اليوم</th><th>النبتة (أ)</th><th>النبتة (ب)</th></tr></thead><tbody id="tb"></tbody></table>
+</section>
+
+<section>
+<h2><b>٤</b>هل كانت توقّعاتي صحيحة؟</h2>
+<p>ما الذي تحتاج إليه الأوراق؟</p>
+<div class="row"><button class="b" id="chk">قارن توقعاتي بالنتائج</button></div>
+<div id="res" class="note" style="display:none" aria-live="polite"></div>
+</section>
+
+<section>
+<h2><b>٥</b>أستكشف أكثر: أتوقّع</h2>
+<p>ماذا يحدث إذا رفعتُ ورق الألومنيوم عن أوراق النبتة المغطّاة؟ ألاحظ النبتة مدة أسبوع. هل كان توقعي صحيحاً؟</p>
+<div class="tray" id="pX"></div>
+<button class="b" id="unc" disabled>ارفع الألومنيوم عن النبتة (ب)</button>
+<div id="sv5" style="margin-top:8px"></div>
+<div class="row"><input type="range" id="d2" min="7" max="14" step="1" value="7" aria-label="اليوم" disabled><span id="d2l" class="tag">اليوم ٧</span></div>
+<div id="res2" class="note" style="display:none" aria-live="polite"></div>
+</section>
+
+<section>
+<h2>الإجابات النموذجية</h2>
+<details><summary>أتوقّع: ماذا يحدث للنبتتين بعد أسبوع؟</summary>
+<p class="ans">النبتة (أ) تنمو وتبقى خضراء وسليمة. أما النبتة (ب) المغطّاة فتصفرّ أوراقها وتذبل ويضعف نموها.</p></details>
+<details><summary>أسجّل البيانات: ما الذي ألاحظه خلال أسبوع؟</summary>
+<p class="ans">النبتة (أ): أوراقها خضراء وتطول وتظهر أوراق جديدة. النبتة (ب): تفقد أوراقها لونها الأخضر تدريجياً، وتصبح صفراء شاحبة ذابلة، ونموها ضعيف.</p></details>
+<details><summary>هل كانت توقعاتي صحيحة؟ ما الذي تحتاج إليه الأوراق؟</summary>
+<p class="ans">تحتاج أوراق النبات إلى الضوء لتبقى خضراء وتصنع غذاءها وتعيش. وعندما حجب الألومنيوم الضوء ضعفت النبتة (ب).</p></details>
+<details><summary>أتوقّع: ماذا يحدث إذا رفعت الألومنيوم؟</summary>
+<p class="ans">تبدأ النبتة (ب) باستعادة لونها الأخضر تدريجياً، وتعود أوراقها إلى النمو بعد وصول الضوء إليها.</p></details>
+</section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const st={sun:false,cov:false,wat:false,pA:null,pB:null,pX:null,unc:false};
+const OA=['تنمو وتبقى خضراء','تصفرّ أوراقها وتذبل','لا تتغير'];
+const OX=['تعود خضراء تدريجياً','تبقى صفراء','تذبل وتموت'];
+const lerp=(a,b,t)=>{const p=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));const x=p(a),y=p(b);return'#'+x.map((v,i)=>Math.round(v+(y[i]-v)*t).toString(16).padStart(2,'0')).join('')};
+function plant(x,d,cov,unc,lab){
+ let g,gr;
+ if(!cov){g=.97;gr=Math.min(d,14)*.08}
+ else if(!unc||d<=7){const t=Math.min(d,7)/7;g=1-.75*t;gr=.14*t}
+ else{const t=(d-7)/7;g=.25+.65*t;gr=.14+(d-7)*.05}
+ const foil=cov&&(!unc||d<=7),col=lerp('#e2dc7a','#3f9a3a',g),H=34+gr*60,dr=(1-g)*35;
+ let s=`<path d="M${x-28} 175H${x+28}L${x+20} 215H${x-20}Z" fill="#b5653a"/><ellipse cx="${x}" cy="175" rx="28" ry="5" fill="#5b3b22"/>`;
+ s+=`<line x1="${x}" y1="175" x2="${x}" y2="${175-H}" stroke="#5a8a3a" stroke-width="4"/>`;
+ for(let i=0;i<4;i++){const y=175-H*(.3+.22*i),dir=i%2?1:-1,a=dir*(-25+dr*1.5);
+  s+=`<ellipse cx="${x+dir*15}" cy="${y}" rx="16" ry="7" fill="${col}" transform="rotate(${a.toFixed(1)} ${x} ${y})"/>`}
+ s+=`<ellipse cx="${x}" cy="${175-H-6}" rx="8" ry="12" fill="${col}"/>`;
+ if(foil)s+=`<ellipse cx="${x}" cy="${175-H*.55}" rx="44" ry="${H*.6+14}" fill="#d5dbe0" fill-opacity=".62" stroke="#8f9aa2" stroke-width="2"/><text x="${x}" y="${175-H*.55+4}" text-anchor="middle" font-size="11" fill="#444">ألومنيوم</text>`;
+ s+=`<text x="${x}" y="200" text-anchor="middle" font-size="18" fill="#fff" font-weight="700">${lab}</text>`;
+ return s}
+function scene(d,o){
+ const bg=o.sun?'#cfe8f5':'#8e9fae';
+ return `<svg viewBox="0 0 340 235" role="img" aria-label="النبتتان أ و ب"><rect width="340" height="235" fill="${bg}"/><rect y="215" width="340" height="20" fill="#7a5a3a"/>`+
+ (o.sun?'<text x="290" y="46" font-size="38">☀️</text>':'<text x="290" y="46" font-size="30">🌑</text>')+
+ plant(90,d,false,false,'أ')+plant(250,d,o.cov,o.unc,'ب')+
+ (o.wat?'<text x="90" y="232" text-anchor="middle" font-size="14">💧</text><text x="250" y="232" text-anchor="middle" font-size="14">💧</text>':'')+`</svg>`}
+const ready=()=>st.sun&&st.cov&&st.wat;
+const preds=()=>st.pA!==null&&st.pB!==null;
+function opts(id,list,key){$(id).innerHTML=list.map((t,i)=>`<button class="chip" data-k="${key}" data-i="${i}" aria-pressed="${st[key]===i}">${t}</button>`).join('')}
+function draw(){
+ $('sSun').setAttribute('aria-pressed',st.sun);$('sCov').setAttribute('aria-pressed',st.cov);$('sWat').setAttribute('aria-pressed',st.wat);
+ $('sv1').innerHTML=scene(0,{sun:st.sun,cov:st.cov,wat:st.wat,unc:false});
+ $('setmsg').textContent=ready()?'التجهيز مكتمل. توقّع النتيجة في الخطوة ٢.':'أكمل الخطوات الثلاث: مكان مشمس، تغطية النبتة (ب)، ورطوبة التربة.';
+ opts('pA',OA,'pA');opts('pB',OA,'pB');opts('pX',OX,'pX');
+ const ok=ready()&&preds();
+ $('d1').disabled=!ok;
+ $('lock').textContent=ok?'':(ready()?'اختر توقعك للنبتتين في الخطوة ٢ لتبدأ الملاحظة.':'أكمل تجهيز التجربة في الخطوة ١ أولاً.');
+ const d=+$('d1').value;$('d1l').textContent='اليوم '+d.toLocaleString('ar-EG');
+ $('sv3').innerHTML=scene(d,{sun:true,cov:true,wat:true,unc:false});
+ const rows=[[0,'أوراق خضراء','أوراق خضراء'],[2,'خضراء ونمت قليلاً','بدأ لون الأوراق يفقد خضرته'],[4,'خضراء وطالت، وظهرت أوراق جديدة','أصبحت الأوراق صفراء شاحبة'],[7,'خضراء وسليمة ونمت جيداً','صفراء ذابلة ونموها ضعيف']];
+ $('tb').innerHTML=ok?rows.filter(r=>d>=r[0]).map(r=>`<tr><td>${r[0].toLocaleString('ar-EG')}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join(''):'<tr><td colspan="3" class="tag">لا توجد بيانات بعد.</td></tr>';
+ $('unc').disabled=!(ok&&d>=7&&st.pX!==null)||st.unc;
+ const e=+$('d2').value;$('d2').disabled=!st.unc;$('d2l').textContent='اليوم '+e.toLocaleString('ar-EG');
+ $('sv5').innerHTML=scene(st.unc?e:7,{sun:true,cov:true,wat:true,unc:st.unc});
+ if(st.unc&&e>=14){const okx=st.pX===0;$('res2').style.display='block';$('res2').innerHTML=(okx?'<span class="ans">توقعك صحيح!</span> ':'توقعك يحتاج مراجعة. ')+'بعد رفع الألومنيوم عادت أوراق النبتة (ب) إلى اللون الأخضر تدريجياً وتابعت النمو، لأن الضوء وصل إليها مرة أخرى.'}else $('res2').style.display='none';
+ if(!st.unc&&st.pX===null)$('unc').textContent='اختر توقعك أولاً، ثم ارفع الألومنيوم';else $('unc').textContent='ارفع الألومنيوم عن النبتة (ب)';
+}
+$('sSun').onclick=()=>{st.sun=!st.sun;draw()};$('sCov').onclick=()=>{st.cov=!st.cov;draw()};$('sWat').onclick=()=>{st.wat=!st.wat;draw()};
+document.addEventListener('click',e=>{const c=e.target.closest('[data-k]');if(c){st[c.dataset.k]=+c.dataset.i;draw()}});
+$('d1').oninput=draw;$('d2').oninput=draw;
+$('unc').onclick=()=>{st.unc=true;$('d2').value=7;draw()};
+$('chk').onclick=()=>{
+ const r=$('res');r.style.display='block';
+ if(!(ready()&&preds())){r.textContent='أكمل التجهيز واختر توقعك للنبتتين أولاً.';return}
+ if(+$('d1').value<7){r.textContent='حرّك الزمن حتى اليوم ٧ لترى النتيجة النهائية.';return}
+ const a=st.pA===0,b=st.pB===1;
+ r.innerHTML=`<b>النبتة (أ):</b> ${a?'توقعك صحيح ✓':'توقعك غير صحيح ✗ (تنمو وتبقى خضراء)'}<br><b>النبتة (ب):</b> ${b?'توقعك صحيح ✓':'توقعك غير صحيح ✗ (تصفرّ أوراقها وتذبل)'}<br><span class="ans">ما الذي تحتاج إليه الأوراق؟ تحتاج الأوراق إلى الضوء لتبقى خضراء وتعيش.</span>`};
+draw();
+</script>
+</body>
+</html>
